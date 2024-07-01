@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://connwtt88g63l"]
+
+[ext_resource type="Script" path="res://toolbox.gd" id="1_eveqi"]
+
+[node name="Toolbox" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_eveqi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Tools"
+horizontal_alignment = 1
+
+[node name="Rng" type="CheckBox" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "RNG"
+
+[node name="Base64" type="CheckBox" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Base64"
+
+[node name="Hex" type="CheckBox" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Hex"
+
+[node name="Concatenator" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Concatenator"
+
+[node name="Splitter" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Splitter"
+
+[node name="Aes" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "AES"
+
+[node name="Cbc" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "CBC"
+
+[node name="Gcm" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "GCM"
+
+[node name="Ccm" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "CCM"
+
+[node name="Cmac" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "CMAC"
+
+[node name="Hmac" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "HMAC"

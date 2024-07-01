@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://uynsmvlfkayg"]
+
+[ext_resource type="Script" path="res://rng.gd" id="1_xd6t2"]
+[ext_resource type="StyleBox" uid="uid://da2qk67qp6ygk" path="res://empty_style.tres" id="2_dthb2"]
+[ext_resource type="PackedScene" uid="uid://gab4175pns3w" path="res://data_builder.tscn" id="2_e5s27"]
+
+[node name="Rng" type="PanelContainer"]
+offset_right = 80.0
+offset_bottom = 93.0
+script = ExtResource("1_xd6t2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "RNG"
+horizontal_alignment = 1
+
+[node name="Output" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Output ►"
+horizontal_alignment = 2
+
+[node name="Size" type="LineEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/focus = ExtResource("2_dthb2")
+placeholder_text = "Size"
+alignment = 1
+
+[node name="Generate" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/focus = ExtResource("2_dthb2")
+text = "Generate"
+
+[node name="DataBuilder" parent="." instance=ExtResource("2_e5s27")]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="VBoxContainer/Generate" to="." method="_on_generate_pressed"]
