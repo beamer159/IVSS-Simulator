@@ -51,5 +51,8 @@ text = "Decode"
 
 [node name="DataBuilder" parent="." instance=ExtResource("2_aupqs")]
 
+[connection signal="gui_input" from="VBoxContainer/Data" to="." method="_on_element_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/Encode" to="." method="_on_element_gui_input"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Encode" to="." method="_on_encode_pressed"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/Decode" to="." method="_on_element_gui_input"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Decode" to="." method="_on_decode_pressed"]

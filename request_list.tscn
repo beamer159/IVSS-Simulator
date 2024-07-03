@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7tqg2le7dn8p"]
+
+[ext_resource type="Script" path="res://request_list.gd" id="1_5tc45"]
+
+[sub_resource type="Theme" id="Theme_v4uyg"]
+default_font_size = 24
+
+[node name="RequestList" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_5tc45")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Requests"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Record" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_v4uyg")
+
+[node name="Pending" type="Label" parent="VBoxContainer/Record"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pending: 0"
+
+[node name="Fullfilled" type="Label" parent="VBoxContainer/Record"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fullfilled: 0"
+
+[node name="Failed" type="Label" parent="VBoxContainer/Record"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Failed: 0"
+
+[node name="Requests" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2

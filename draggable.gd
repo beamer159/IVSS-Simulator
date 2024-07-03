@@ -2,39 +2,39 @@ extends Control
 class_name Draggable
 
 
-signal dragged
-signal event_ignored
+signal drag_begun
 
-var drag_blacklist: Array[Control]
 var dropoffs: Array[Dropoff]
 var process_buttons: Dictionary
 var output: Control
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("drag") \
-	and Rect2(position, size).has_point(event.position) \
-	and mouse_filter != MOUSE_FILTER_IGNORE:
-		if drag_blacklist.any(func(c): return Draggable._control_has_point(c, event.position)):
-			event_ignored.emit(event)
-		else:
-			dragged.emit(self, event)
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("drag"):
+		drag_begun.emit(self)
 
 
-static func _control_has_point(control: Control, point: Vector2):
-	return Rect2(control.global_position, control.size).has_point(point)
+func _on_element_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("drag"):
+		move_to_front()
 
 
-func _on_drop_changed():
+func _on_drop_changed(old_value: Draggable, dropoff: Dropoff):
 	for button in process_buttons.keys():
 		button.disabled = process_buttons[button].any(func(d): return d.drop == null)
+	if dropoff.drop != null:
+		dropoff.drop.hide()
+	if old_value != null:
+		old_value.move_to_front()
+		old_value.show()
+		old_value.position = output.global_position + Vector2(output.size.x, 0)
 
 
 func clear_dropoffs():
 	for dropoff in dropoffs:
 		var delete: Draggable = dropoff.drop
-		dropoff.drop = null
 		delete.queue_free()
+		dropoff.drop = null
 
 
 func get_output_position() -> Vector2:

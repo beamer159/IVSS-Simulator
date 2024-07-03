@@ -38,5 +38,8 @@ text = "Generate"
 
 [node name="DataBuilder" parent="." instance=ExtResource("2_e5s27")]
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/Size" to="." method="_on_element_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/Generate" to="." method="_on_element_gui_input"]
 [connection signal="pressed" from="VBoxContainer/Generate" to="." method="_on_generate_pressed"]

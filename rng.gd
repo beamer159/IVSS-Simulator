@@ -1,5 +1,5 @@
-extends "draggable.gd"
 class_name Rng
+extends "draggable.gd"
 
 
 var crypto: Crypto = Crypto.new()
@@ -7,8 +7,6 @@ var crypto: Crypto = Crypto.new()
 
 
 func _ready():
-	drag_blacklist.append(%Size)
-	drag_blacklist.append(%Generate)
 	output = %Output
 
 

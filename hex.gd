@@ -1,19 +1,16 @@
-extends "res://draggable.gd"
 class_name Hex
+extends "res://draggable.gd"
 
 
 @onready var data_builder = $DataBuilder
 
 
 func _ready() -> void:
-	drag_blacklist.append(%Encode)
-	drag_blacklist.append(%Decode)
-	drag_blacklist.append(%Data)
 	process_buttons[%Encode] = [%Data]
 	process_buttons[%Decode] = [%Data]
 	dropoffs.append(%Data)
 	output = %Output
-	%Data.drop_changed.connect(_on_drop_changed)
+	%Data.drop_changed.connect(_on_drop_changed.bind(%Data))
 
 
 func handle(c: Control):

@@ -4,20 +4,21 @@
 [ext_resource type="Script" path="res://request.gd" id="1_v43gc"]
 
 [node name="Request" type="PanelContainer"]
-offset_right = 300.0
-offset_bottom = 49.0
+offset_right = 80.0
+offset_bottom = 147.0
 script = ExtResource("1_v43gc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
-text = "I need a 128-bit symmetric key. Please make it Base64 encoded for me too."
 autowrap_mode = 3
 
 [node name="Dropoff" parent="VBoxContainer" instance=ExtResource("1_awdff")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Data"
@@ -30,4 +31,7 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 max_value = 30.0
 step = 0.0
+fill_mode = 1
 show_percentage = false
+
+[connection signal="value_changed" from="VBoxContainer/Progress" to="." method="_on_progress_value_changed"]

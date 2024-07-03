@@ -1,85 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://connwtt88g63l"]
+[gd_scene load_steps=4 format=3 uid="uid://connwtt88g63l"]
 
 [ext_resource type="Script" path="res://toolbox.gd" id="1_eveqi"]
+[ext_resource type="PackedScene" uid="uid://ccjn8jfm5dc4" path="res://tool.tscn" id="2_hm014"]
+
+[sub_resource type="Theme" id="Theme_ex222"]
+default_font_size = 24
 
 [node name="Toolbox" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 134.0
+grow_vertical = 2
 script = ExtResource("1_eveqi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme = SubResource("Theme_ex222")
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "Tools"
 horizontal_alignment = 1
 
-[node name="Rng" type="CheckBox" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Rng" parent="VBoxContainer" instance=ExtResource("2_hm014")]
 unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 0
-action_mode = 0
 text = "RNG"
 
-[node name="Base64" type="CheckBox" parent="VBoxContainer"]
+[node name="Base64" parent="VBoxContainer" instance=ExtResource("2_hm014")]
 unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 0
-action_mode = 0
 text = "Base64"
 
-[node name="Hex" type="CheckBox" parent="VBoxContainer"]
+[node name="Hex" parent="VBoxContainer" instance=ExtResource("2_hm014")]
 unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 0
-action_mode = 0
 text = "Hex"
-
-[node name="Concatenator" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "Concatenator"
-
-[node name="Splitter" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "Splitter"
-
-[node name="Aes" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "AES"
-
-[node name="Cbc" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "CBC"
-
-[node name="Gcm" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "GCM"
-
-[node name="Ccm" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "CCM"
-
-[node name="Cmac" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "CMAC"
-
-[node name="Hmac" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "HMAC"
