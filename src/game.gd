@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 
 var dragging: Draggable:
@@ -10,14 +10,19 @@ var hovering: Dropoff
 
 
 func _ready() -> void:
-	$Toolbox.setup(%Rng, %Base64, %Hex)
+	$Toolbox.setup(%Rng, %Base64, %Hex, %Hasher, %MD5, %SHA1, %SHA256)
 	%Rng.data_builder.data_built.connect(_on_data_built)
 	%Base64.data_builder.data_built.connect(_on_data_built)
 	%Hex.data_builder.data_built.connect(_on_data_built)
+	%Hasher.data_builder.data_built.connect(_on_data_built)
 	%RequestList.request_created.connect(_on_request_created)
 	_connect_draggable(%Rng)
 	_connect_draggable(%Base64)
 	_connect_draggable(%Hex)
+	_connect_draggable(%Hasher)
+	_connect_draggable(%MD5)
+	_connect_draggable(%SHA1)
+	_connect_draggable(%SHA256)
 	dragging = null
 
 

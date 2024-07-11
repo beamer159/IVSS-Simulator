@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://y5mm46b8mt3k"]
 
-[ext_resource type="PackedScene" uid="uid://cbf62vrustvhy" path="res://dropoff.tscn" id="1_awdff"]
-[ext_resource type="Script" path="res://request.gd" id="1_v43gc"]
+[ext_resource type="PackedScene" uid="uid://cbf62vrustvhy" path="res://src/dropoff.tscn" id="1_awdff"]
+[ext_resource type="Script" path="res://src/request.gd" id="1_v43gc"]
 
 [node name="Request" type="PanelContainer"]
 offset_right = 80.0
@@ -22,7 +22,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Data"
-label = "Data"
 area = Vector2(80, 80)
 
 [node name="Progress" type="ProgressBar" parent="VBoxContainer"]

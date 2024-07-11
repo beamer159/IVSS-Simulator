@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://connwtt88g63l"]
 
-[ext_resource type="Script" path="res://toolbox.gd" id="1_eveqi"]
-[ext_resource type="PackedScene" uid="uid://ccjn8jfm5dc4" path="res://tool.tscn" id="2_hm014"]
+[ext_resource type="Script" path="res://src/toolbox.gd" id="1_eveqi"]
+[ext_resource type="PackedScene" uid="uid://ccjn8jfm5dc4" path="res://src/tool.tscn" id="2_hm014"]
 
 [sub_resource type="Theme" id="Theme_ex222"]
 default_font_size = 24
@@ -40,3 +40,23 @@ text = "Base64"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Hex"
+
+[node name="Hasher" parent="VBoxContainer" instance=ExtResource("2_hm014")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hasher"
+
+[node name="MD5" parent="VBoxContainer" instance=ExtResource("2_hm014")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MD5"
+
+[node name="SHA1" parent="VBoxContainer" instance=ExtResource("2_hm014")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SHA1"
+
+[node name="SHA256" parent="VBoxContainer" instance=ExtResource("2_hm014")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SHA256"

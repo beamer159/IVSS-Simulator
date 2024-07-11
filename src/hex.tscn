@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh22h2qrvm76x"]
+
+[ext_resource type="PackedScene" uid="uid://cbf62vrustvhy" path="res://src/dropoff.tscn" id="1_gcbrr"]
+[ext_resource type="Script" path="res://src/hex.gd" id="1_tmtka"]
+[ext_resource type="PackedScene" uid="uid://gab4175pns3w" path="res://src/data_builder.tscn" id="4_h7vw7"]
+
+[node name="Hex" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tmtka")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Hex"
+horizontal_alignment = 1
+
+[node name="Output" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Output  >"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Data" parent="VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_gcbrr")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "Data"
+area = Vector2(120, 120)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Encode" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "Encode"
+
+[node name="Decode" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "Decode"
+
+[node name="DataBuilder" parent="." instance=ExtResource("4_h7vw7")]
+
+[connection signal="gui_input" from="VBoxContainer/MarginContainer/VBoxContainer/Data" to="." method="_on_element_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Encode" to="." method="_on_element_gui_input"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Encode" to="." method="_on_encode_pressed"]
+[connection signal="gui_input" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Decode" to="." method="_on_element_gui_input"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Decode" to="." method="_on_decode_pressed"]

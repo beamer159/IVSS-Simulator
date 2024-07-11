@@ -1,5 +1,5 @@
 class_name Hex
-extends "res://draggable.gd"
+extends "draggable.gd"
 
 
 @onready var data_builder = $DataBuilder

@@ -1,5 +1,5 @@
-extends Control
 class_name Draggable
+extends Control
 
 
 signal drag_begun
@@ -31,9 +31,8 @@ func _on_drop_changed(old_value: Draggable, dropoff: Dropoff):
 
 
 func clear_dropoffs():
-	for dropoff in dropoffs:
-		var delete: Draggable = dropoff.drop
-		delete.queue_free()
+	for dropoff in dropoffs.filter(func(d: Dropoff): return d.drop is Data):
+		dropoff.drop.queue_free()
 		dropoff.drop = null
 
 

@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://dg3d47lpobps2"]
+
+[ext_resource type="Script" path="res://src/game.gd" id="1_gns3t"]
+[ext_resource type="FontFile" uid="uid://d2xj6bojijmr3" path="res://fonts/opensans-semibold.ttf" id="1_lx03p"]
+[ext_resource type="PackedScene" uid="uid://uynsmvlfkayg" path="res://src/rng.tscn" id="2_jjcf0"]
+[ext_resource type="PackedScene" uid="uid://co7hqrume3xpv" path="res://src/base_64.tscn" id="3_gp8of"]
+[ext_resource type="PackedScene" uid="uid://dh22h2qrvm76x" path="res://src/hex.tscn" id="4_fernb"]
+[ext_resource type="PackedScene" uid="uid://connwtt88g63l" path="res://src/toolbox.tscn" id="5_tfir2"]
+[ext_resource type="PackedScene" uid="uid://b7tqg2le7dn8p" path="res://src/request_list.tscn" id="6_myups"]
+[ext_resource type="PackedScene" uid="uid://braxxc8q5mm1s" path="res://src/hasher.tscn" id="6_r4ojy"]
+[ext_resource type="PackedScene" uid="uid://lfa1stjmnif1" path="res://src/hash_function.tscn" id="6_ubpgu"]
+
+[sub_resource type="Theme" id="Theme_1si8p"]
+default_font = ExtResource("1_lx03p")
+default_font_size = 24
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1si8p")
+script = ExtResource("1_gns3t")
+
+[node name="RequestList" parent="." instance=ExtResource("6_myups")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = -176.0
+
+[node name="Items" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Rng" parent="Items" instance=ExtResource("2_jjcf0")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 217.0
+offset_top = 23.0
+offset_right = 297.0
+offset_bottom = 116.0
+
+[node name="Base64" parent="Items" instance=ExtResource("3_gp8of")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 192.0
+offset_top = 245.0
+offset_right = 408.0
+offset_bottom = 522.0
+
+[node name="Hex" parent="Items" instance=ExtResource("4_fernb")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 185.0
+offset_top = 536.0
+offset_right = 401.0
+offset_bottom = 813.0
+
+[node name="Hasher" parent="Items" instance=ExtResource("6_r4ojy")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 462.0
+offset_top = 69.0
+offset_right = 730.0
+offset_bottom = 346.0
+
+[node name="MD5" parent="Items" instance=ExtResource("6_ubpgu")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 494.0
+offset_top = 544.0
+offset_right = 572.0
+offset_bottom = 602.0
+hash_function = 0
+metadata/_edit_pinned_properties_ = [&"hash_function"]
+
+[node name="SHA1" parent="Items" instance=ExtResource("6_ubpgu")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 489.0
+offset_top = 391.0
+offset_right = 574.0
+offset_bottom = 449.0
+hash_function = 1
+
+[node name="SHA256" parent="Items" instance=ExtResource("6_ubpgu")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 481.0
+offset_top = 462.0
+offset_right = 594.0
+offset_bottom = 520.0
+hash_function = 2
+
+[node name="Toolbox" parent="." instance=ExtResource("5_tfir2")]
+layout_mode = 1

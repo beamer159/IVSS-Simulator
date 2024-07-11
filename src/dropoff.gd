@@ -6,15 +6,11 @@ extends Button
 signal drop_changed(old_value: Draggable)
 
 enum Type {
-	DATA
+	DATA,
+	HASH_FUNCTION
 }
 
 @export var type: Type
-
-@export var label: String:
-	set(v):
-		label = v
-		text = v
 
 @export var area: Vector2:
 	set(v):
@@ -34,6 +30,9 @@ func attempt_drop(draggable: Draggable):
 	match type:
 		Type.DATA:
 			if not draggable is Data:
+				return
+		Type.HASH_FUNCTION:
+			if not draggable is HashFunction:
 				return
 	drop = draggable
 

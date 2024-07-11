@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://gab4175pns3w"]
 
-[ext_resource type="Script" path="res://data_builder.gd" id="1_u5i6u"]
+[ext_resource type="Script" path="res://src/data_builder.gd" id="1_u5i6u"]
 
 [node name="DataBuilder" type="Node"]
 script = ExtResource("1_u5i6u")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7tqg2le7dn8p"]
 
-[ext_resource type="Script" path="res://request_list.gd" id="1_5tc45"]
+[ext_resource type="Script" path="res://src/request_list.gd" id="1_5tc45"]
 
 [sub_resource type="Theme" id="Theme_v4uyg"]
 default_font_size = 24

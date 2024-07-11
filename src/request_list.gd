@@ -28,7 +28,7 @@ func _ready() -> void:
 
 
 func create_request() -> void:
-	var request: Request = preload("res://request.tscn").instantiate()
+	var request: Request = preload("res://src/request.tscn").instantiate()
 	%Requests.add_child(request)
 	request.finished.connect(_on_request_finished)
 	pending += 1
